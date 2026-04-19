@@ -19,16 +19,16 @@ Game::Game(QWidget* parent)
 	: QGraphicsView(parent),
 	  gameOverBanner(nullptr),
 	  restartHint(nullptr),
+	  customSkinButton(nullptr),
 	  selectedSkinIndex(0),
+	  customSkinIndex(-1),
 	  score(0),
 	  isGameOver(false),
 	  startScreenVisible(false),
 	  startBg(nullptr),
 	  startGetReady(nullptr),
 	  startGuide(nullptr),
-	  startGoButton(nullptr),
-	  customSkinButton(nullptr),
-	  customSkinIndex(-1) {
+	  startGoButton(nullptr) {
 	scene = new QGraphicsScene(this);
 	setScene(scene);
 

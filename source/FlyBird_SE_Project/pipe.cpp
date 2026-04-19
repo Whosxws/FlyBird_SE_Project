@@ -2,7 +2,7 @@
 #include <QRandomGenerator>
 #include <QGraphicsScene>
 
-Pipe::Pipe() : speed(5), gap(180),isPassed(false) {
+Pipe::Pipe() : isPassed(false), speed(5), gap(180) {
 	// 随机生成管道高度
 	topHeight = QRandomGenerator::global()->bounded(100,250);
 	bottomHeight = 600 - topHeight - gap;
