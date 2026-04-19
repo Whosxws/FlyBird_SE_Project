@@ -1,42 +1,44 @@
 # FlyBird SE Project
 
-`FlyBird SE Project` is a Windows desktop release package for the FlyBird game. The repository currently stores the runnable build, the runtime dependencies required to launch it, and a user manual in PDF format.
+`FlyBird SE Project` 当前是一个用于分发的 Windows 桌面版游戏发布包仓库，仓库内主要包含可直接运行的程序文件、Qt 运行依赖以及一份用户使用手册。
 
-## Repository Overview
+## 项目说明
 
-This repository is not a source-code repository at the moment. It mainly contains:
+目前这个仓库保存的不是源码，而是已经打包完成的运行版本。也就是说，下载后只要保持目录结构完整，就可以在 Windows 环境下直接启动游戏。
 
-- `flyBird.exe`: the main game executable
-- `Qt6Core.dll`, `Qt6Gui.dll`, `Qt6Widgets.dll`, `Qt6Network.dll`, `Qt6Svg.dll`: core Qt 6 runtime libraries
-- `platforms/`: Qt platform plugin used to start the application on Windows
-- `imageformats/`: image format plugins for loading common assets such as JPEG, WebP, TIFF, ICO, and GIF
-- `tls/`: TLS backend plugins used by Qt networking features
-- `styles/`: Qt style plugin
-- `translations/`: 31 Qt translation files for multilingual runtime support
-- `桌面FlyBird游戏用户使用手册.pdf`: user manual for the desktop game
+仓库当前主要包含以下内容：
 
-## Included Files
+- `flyBird.exe`：游戏主程序
+- `Qt6Core.dll`、`Qt6Gui.dll`、`Qt6Widgets.dll`、`Qt6Network.dll`、`Qt6Svg.dll`：Qt 6 运行库
+- `platforms/`：Qt 平台插件，程序启动时必需
+- `imageformats/`：图片格式插件，用于支持 `jpg`、`webp`、`tiff`、`ico`、`gif` 等格式
+- `tls/`：Qt 网络相关的 TLS 插件
+- `styles/`：Qt 界面样式插件
+- `translations/`：Qt 多语言翻译文件
+- `桌面FlyBird游戏用户使用手册.pdf`：游戏用户手册
 
-The current package is approximately `62 MB` in total and includes a complete set of runtime files, so it can be distributed as a standalone Windows folder without requiring a separate Qt installation.
+## 仓库内容概览
 
-Key files:
+当前发布包总大小约为 `62 MB`，已经包含运行程序所需的主要依赖，因此可以作为一个完整的 Windows 独立运行目录使用，无需额外安装 Qt。
+
+重要文件：
 
 - [flyBird.exe](./flyBird.exe)
-- [User Manual PDF](./桌面FlyBird游戏用户使用手册.pdf)
+- [桌面FlyBird游戏用户使用手册.pdf](./桌面FlyBird游戏用户使用手册.pdf)
 
-## How to Run
+## 运行方式
 
-1. Download or clone this repository to a Windows machine.
-2. Keep all files and folders in the same directory structure.
-3. Double-click `flyBird.exe` to start the game.
+1. 下载或克隆本仓库到本地 Windows 电脑。
+2. 保持当前文件和文件夹结构不变。
+3. 双击 `flyBird.exe` 启动游戏。
 
-Notes:
+运行时请注意：
 
-- Do not remove the `.dll` files or the plugin folders such as `platforms/` and `imageformats/`, otherwise the program may fail to start.
-- This package is prepared for Windows desktop usage.
-- If Windows SmartScreen or antivirus prompts appear, review the file source before allowing execution.
+- 不要随意删除仓库中的 `.dll` 文件。
+- 不要删除 `platforms/`、`imageformats/`、`tls/` 等插件目录，否则程序可能无法启动。
+- 如果系统弹出 Windows SmartScreen 或杀毒软件提示，请先确认文件来源后再决定是否放行。
 
-## Directory Structure
+## 目录结构
 
 ```text
 FlyBird_SE_Project/
@@ -62,29 +64,29 @@ FlyBird_SE_Project/
 `-- 桌面FlyBird游戏用户使用手册.pdf
 ```
 
-## Technical Notes
+## 技术信息
 
-- Application type: Windows desktop executable
-- UI/runtime framework: Qt 6
-- Networking support: included through `Qt6Network.dll`
-- Graphics/runtime support: includes Direct3D compiler and software OpenGL fallback libraries
-- Internationalization: 31 translation files are bundled
+- 程序类型：Windows 桌面应用
+- 界面与运行框架：Qt 6
+- 网络能力：通过 `Qt6Network.dll` 提供支持
+- 图形相关依赖：包含 `D3Dcompiler_47.dll` 与 `opengl32sw.dll`
+- 多语言支持：仓库内包含 `31` 个翻译文件
 
-## Current Limitations
+## 当前限制
 
-- The repository currently contains the built release package rather than the original source code.
-- No build scripts, project files, or source directories are included in this version.
-- Version metadata inside `flyBird.exe` is minimal, so release history should be tracked through Git commits or GitHub Releases.
+- 当前仓库是发布包仓库，不是源码仓库。
+- 仓库中暂未包含源码目录、工程文件或构建脚本。
+- `flyBird.exe` 内部版本信息较少，后续版本建议通过 Git 提交记录或 GitHub Releases 管理。
 
-## Suggested Next Steps
+## 后续建议
 
-If this project will continue to evolve, a cleaner long-term structure would be:
+如果后面还会继续维护这个项目，建议逐步调整成更清晰的结构：
 
-- keep source code in the main repository
-- move packaged binaries to GitHub Releases
-- add screenshots, gameplay description, and controls to this README
-- add a changelog for future versions
+- 将源代码放入主仓库
+- 将编译后的发布包放到 GitHub Releases
+- 在 `README` 中补充游戏截图、玩法说明和按键说明
+- 增加版本更新记录
 
 ## License
 
-No license file is currently included in this repository. If you plan to share or collaborate publicly, it is recommended to add an explicit license.
+当前仓库中还没有明确的许可证文件。如果后续打算公开协作或对外分发，建议补充一个清晰的开源许可证或使用说明。
