@@ -1,43 +1,47 @@
 # FlyBird SE Project
 
-`FlyBird SE Project` 当前是一个用于分发的 Windows 桌面版游戏发布包仓库，仓库内主要包含可直接运行的程序文件、Qt 运行依赖以及一份用户使用手册。
->同时也是华中科技大学软件工程开发课程的结课作业
+`FlyBird SE Project` 是一个桌面版 FlyBird 游戏项目仓库。
 
-## 项目说明
+> 同时也是华中科技大学软件工程开发课程的结课作业
 
-目前这个仓库保存的不是源码，而是已经打包完成的运行版本。也就是说，下载后只要保持目录结构完整，就可以在 Windows 环境下直接启动游戏。
+当前仓库同时保存了两部分内容：
 
-仓库当前主要包含以下内容：
+- 根目录中的 Windows 发布包，可直接运行
+- `source/FlyBird_SE_Project/` 下的 Qt 源码目录，可用于查看和继续开发
+
+## 仓库内容
+
+当前仓库主要包含以下内容：
 
 - `flyBird.exe`：游戏主程序
 - `Qt6Core.dll`、`Qt6Gui.dll`、`Qt6Widgets.dll`、`Qt6Network.dll`、`Qt6Svg.dll`：Qt 6 运行库
-- `platforms/`：Qt 平台插件，程序启动时必需
-- `imageformats/`：图片格式插件，用于支持 `jpg`、`webp`、`tiff`、`ico`、`gif` 等格式
-- `tls/`：Qt 网络相关的 TLS 插件
-- `styles/`：Qt 界面样式插件
-- `translations/`：Qt 多语言翻译文件
-- `桌面FlyBird游戏用户使用手册.pdf`：游戏用户手册
+- `platforms/`：Qt 平台插件，程序启动必需
+- `imageformats/`：图片格式插件
+- `tls/`：Qt 网络相关 TLS 插件
+- `styles/`：Qt 样式插件
+- `translations/`：多语言翻译文件
+- `桌面FlyBird游戏用户使用手册.pdf`：用户手册
+- `source/FlyBird_SE_Project/`：项目源码、资源文件、工程文件
 
-## 仓库内容概览
+## 快速开始
 
-当前发布包总大小约为 `62 MB`，已经包含运行程序所需的主要依赖，因此可以作为一个完整的 Windows 独立运行目录使用，无需额外安装 Qt。
+如果你只是想运行游戏：
 
-重要文件：
-
-- [flyBird.exe](./flyBird.exe)
-- [桌面FlyBird游戏用户使用手册.pdf](./桌面FlyBird游戏用户使用手册.pdf)
-
-## 运行方式
-
-1. 下载或克隆本仓库到本地 Windows 电脑。
-2. 保持当前文件和文件夹结构不变。
-3. 双击 `flyBird.exe` 启动游戏。
+1. 下载或克隆本仓库到本地 Windows 电脑
+2. 保持目录结构不变
+3. 双击 `flyBird.exe` 启动游戏
 
 运行时请注意：
 
-- 不要随意删除仓库中的 `.dll` 文件。
-- 不要删除 `platforms/`、`imageformats/`、`tls/` 等插件目录，否则程序可能无法启动。
-- 如果系统弹出 Windows SmartScreen 或杀毒软件提示，请先确认文件来源后再决定是否放行。
+- 不要删除根目录下的 `.dll` 文件
+- 不要删除 `platforms/`、`imageformats/`、`tls/` 等目录
+- 如果出现 Windows 安全提示，请先确认文件来源
+
+重要文件：
+
+- [程序可执行文件](./flyBird.exe)
+- [用户使用手册](./桌面FlyBird游戏用户使用手册.pdf)
+- [源码目录](./source/FlyBird_SE_Project/)
 
 ## 目录结构
 
@@ -62,20 +66,57 @@ FlyBird_SE_Project/
 |-- styles/
 |-- tls/
 |-- translations/
+|-- source/
+|   `-- FlyBird_SE_Project/
+|       |-- main.cpp
+|       |-- game.cpp
+|       |-- game.h
+|       |-- bird.cpp
+|       |-- bird.h
+|       |-- pipe.cpp
+|       |-- pipe.h
+|       |-- flyBird.pro
+|       |-- qrc.qrc
+|       `-- assets/
 `-- 桌面FlyBird游戏用户使用手册.pdf
 ```
 
-## 技术信息
+## 源码说明
 
-- 程序类型：Windows 桌面应用
-- 界面与运行框架：Qt 6
-- 网络能力：通过 `Qt6Network.dll` 提供支持
-- 图形相关依赖：包含 `D3Dcompiler_47.dll` 与 `opengl32sw.dll`
-- 多语言支持：仓库内包含 `31` 个翻译文件
+源码位于 [source/FlyBird_SE_Project](./source/FlyBird_SE_Project/)。
 
-## 当前限制
+当前可以确认的核心文件如下：
 
-- 当前仓库是发布包仓库，不是源码仓库。
-- 仓库中暂未包含源码目录、工程文件或构建脚本。
-- `flyBird.exe` 内部版本信息较少，后续版本建议通过 Git 提交记录或 GitHub Releases 管理。
+- `main.cpp`：程序入口
+- `game.cpp` / `game.h`：游戏主逻辑、界面、开始界面、重开逻辑、皮肤选择等
+- `bird.cpp` / `bird.h`：小鸟对象相关逻辑
+- `pipe.cpp` / `pipe.h`：管道障碍物相关逻辑
+- `flyBird.pro`：Qt qmake 工程文件
+- `qrc.qrc`：Qt 资源文件列表
+- `assets/images/`：游戏图片资源
 
+从工程文件来看，该项目使用：
+
+- Qt Widgets
+- qmake
+- C++11
+
+## 如何构建源码
+
+推荐使用 Qt Creator 打开源码工程：
+
+1. 打开 `source/FlyBird_SE_Project/flyBird.pro`
+2. 选择本机可用的 Qt 6 Kit
+3. 编译并运行
+
+如果你使用命令行，也可以基于 `qmake` 和对应的编译工具进行构建，但具体命令会取决于本地 Qt 与编译器环境。
+
+## 当前仓库状态
+
+当前仓库更接近“课程项目归档仓库”，因为它同时保存了发布包和源码。
+
+目前特点如下：
+
+- 可以直接运行游戏
+- 可以查看并继续开发源码
+- 已包含项目资源文件

@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/images/background-day.png</file>
+        <file>assets/images/bluebird-downflap.png</file>
+        <file>assets/images/bluebird-midflap.png</file>
+        <file>assets/images/bluebird-upflap.png</file>
+        <file>assets/images/gameover.png</file>
+        <file>assets/images/pipe-green.png</file>
+        <file>assets/images/start-getready.png</file>
+        <file>assets/images/start-guide.png</file>
+        <file>assets/images/start-go.png</file>
+        <file>assets/images/bird-yellow.png</file>
+        <file>assets/images/bird-red.png</file>
+        <file>assets/images/skin-custom.png</file>
+    </qresource>
+</RCC>
